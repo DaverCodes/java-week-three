@@ -16,12 +16,8 @@ function passwordCriteria() {
   let passwordLength = prompt(
     "Choose password length between 8 and 128"
   );
-  if (passwordLength < 8 ) {
-    alert('needs to be greater than 8')
-    return
-  }
-  if (passwordLength > 128 ) {
-    alert('needs to be less than 128')
+  if (passwordLength < 8, passwordLength > 128 ) {
+    alert('needs to be greater than 8 and less than 128')
     return
   }
   const numbers = confirm("Press OK to add numbers. Press Cancel to continue without.");

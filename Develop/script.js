@@ -16,6 +16,14 @@ function passwordCriteria() {
   let passwordLength = prompt(
     "Choose password length between 8 and 128"
   );
+  if (passwordLength < 8 ) {
+    alert('needs to be greater than 8')
+    return
+  }
+  if (passwordLength > 128 ) {
+    alert('needs to be less than 128')
+    return
+  }
   const numbers = confirm("Press OK to add numbers. Press Cancel to continue without.");
   const lcAlphabet = confirm("Press OK to add lowercase. Press Cancel to continue without.");
   const ucAlphabet = confirm("Press OK to add uppercase. Press Cancel to continue without.");
@@ -27,8 +35,13 @@ function passwordCriteria() {
   if (ucAlphabet) combinedTrue += [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
   if (sCharacters) combinedTrue += [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"]
   console.log(combinedTrue);
-
+  
+  if (!numbers && !lcAlphabet && !ucAlphabet && !sCharacters) {
+    alert('you gotta choose something')
+    alert('choose at least one prompt')
+  }
 }
+// this is a really fun bit of code
   // const passwordLength = prompt(
   //   "Choose password length between 8 and 128"
   // );

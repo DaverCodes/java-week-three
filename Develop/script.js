@@ -7,20 +7,33 @@ const lcAlphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 const ucAlphabet = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
 // make sure '"' works the special key \ is not visible in the string
 const sCharacters = [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"];
-var combinedTrue
+let combinedTrue = '';
+
+
 
 
 function passwordCriteria() {
-  const passwordLength = prompt(
+  let passwordLength = prompt(
     "Choose password length between 8 and 128"
   );
-  const number = confirm("Press OK to add numbers. Press Cancel to continue without.");
+  const numbers = confirm("Press OK to add numbers. Press Cancel to continue without.");
   const lcAlphabet = confirm("Press OK to add lowercase. Press Cancel to continue without.");
   const ucAlphabet = confirm("Press OK to add uppercase. Press Cancel to continue without.");
   const sCharacters = confirm("Press OK to add special characters. Press Cancel to continue without.");
-  console.log(passwordLength, number, lcAlphabet, ucAlphabet, sCharacters);
-  //if number = true then combinedTrue = number.concat
+  console.log(passwordLength, numbers, lcAlphabet, ucAlphabet, sCharacters);
   
+  if (numbers) combinedTrue += [... '1234567890'];
+  if (lcAlphabet) combinedTrue += [...'abcdefghijklmnopqrstuvwxyz'];
+  if (ucAlphabet) combinedTrue += [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+  if (sCharacters) combinedTrue += [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"]
+  console.log(combinedTrue);
+
+}
+  // const passwordLength = prompt(
+  //   "Choose password length between 8 and 128"
+  // );
+  //if number = true then combinedTrue = number.concat
+
 
   // function (checkRequirments) {
   //   if (number) { 
@@ -32,7 +45,7 @@ function passwordCriteria() {
   //   }
     
   // }
-}
+
 // const combined = functoion
 // if const=true add const to combined
 // pword = pwordNum + pwordAlphaUp + pwordAlphaLow + pwordChar

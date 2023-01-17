@@ -2,11 +2,11 @@
 
 var generateBtn = document.querySelector("#generate");
 
-const numbers = [... '1234567890'];
-const lcAlphabet = [...'abcdefghijklmnopqrstuvwxyz'];
-const ucAlphabet = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-// make sure '"' works the special key \ is not visible in the string
-const sCharacters = [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"];
+// const numbers = [... '1234567890'];
+// const lcAlphabet = [...'abcdefghijklmnopqrstuvwxyz'];
+// const ucAlphabet = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+// // make sure '"' works the special key \ is not visible in the string
+// const sCharacters = [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"];
 let combinedTrue = '';
 
 
@@ -16,10 +16,19 @@ function passwordCriteria() {
   let passwordLength = prompt(
     "Choose password length between 8 and 128"
   );
-  if (passwordLength < 8, passwordLength > 128 ) {
-    alert('needs to be greater than 8 and less than 128')
+  if (passwordLength < 8) {
+    alert('this password is too short')
+    alert('choose a number greater than 8')
     return
   }
+  if (passwordLength > 128 ) {
+    alert("I'm getting carpal tunnel just thinking about writing a password that long")
+    alert("it's best to keep your password under 128")
+    alert("let's try this again")
+    return
+  }
+
+
   const numbers = confirm("Press OK to add numbers. Press Cancel to continue without.");
   const lcAlphabet = confirm("Press OK to add lowercase. Press Cancel to continue without.");
   const ucAlphabet = confirm("Press OK to add uppercase. Press Cancel to continue without.");
@@ -35,6 +44,7 @@ function passwordCriteria() {
   if (!numbers && !lcAlphabet && !ucAlphabet && !sCharacters) {
     alert('you gotta choose something')
     alert('choose at least one prompt')
+    alert('please')
   }
 }
 // this is a really fun bit of code

@@ -5,6 +5,11 @@ var combinedTrue = '';
 // var password = '';
 var passwordLength = '';
 
+const numbers = [... '1234567890'];
+const lcAlphabet = [...'abcdefghijklmnopqrstuvwxyz'];
+const ucAlphabet = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+const sCharacters = [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"];
+
 function passwordChoices() {
   passwordLength = parseInt(prompt(
     "Choose password length between 8 and 128"
@@ -25,14 +30,6 @@ function passwordChoices() {
     alert ("For this function, the number cannot be written out")
     return
   }
-  //parseinit takes the argument introduced in the prompt and changes the boolean into an integer thats specifically used to define SCALE
-  // passwordLength = parseInt(passwordLength)
-
-//   while (isNaN(passwordlength)|| passwordlength < 8 || passwordlength > 128) {
-//     alert('Password length must be a number between 8 and 128');
-//     length = prompt('Enter the desired length of your password (between 8 and 128 characters)');
-//     passwordlength = parseInt(passwordlength);
-// }
   
   var numbers = confirm("Press OK to add numbers. Press Cancel to continue without.");
   var lcAlphabet = confirm("Press OK to add lowercase. Press Cancel to continue without.");
@@ -46,26 +43,12 @@ function passwordChoices() {
     alert('choose at least one prompt')
     alert('please')
   }  
-  
-  if (numbers) combinedTrue.concat += [... '1234567890'];
-  if (lcAlphabet) combinedTrue.concat += [...'abcdefghijklmnopqrstuvwxyz'];
-  if (ucAlphabet) combinedTrue.concat += [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-  if (sCharacters) combinedTrue.concat += [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"]
+  combinedTrue.concat += numbers
+  combinedTrue.concat += lcAlphabet
+  combinedTrue.concat += ucAlphabet
+  combinedTrue.concat += sCharacters
 
-  // var passwordCombo = concat(combined)
-  
-
-
-  // combinedTrue = combinedTrue.slice(passwordLength)
   console.log(combinedTrue);
-
-
-//   for (let i = 0; i < length; i++) {
-//     let randomIndex = Math.floor(Math.random() * characterSet.length);
-//     password += characterSet[randomIndex];
-// }
-
-// return password
 
   
 }

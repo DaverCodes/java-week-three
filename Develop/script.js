@@ -3,13 +3,13 @@
 var generateBtn = document.querySelector("#generate");
 var combinedTrue = '';
 var password = '';
+var passwordLength = '';
 
-function generatePassword() {
-  var passwordLength = prompt(
+function passwordChoices() {
+  passwordLength = parseInt(prompt(
     "Choose password length between 8 and 128"
-  );
-  
-  
+  ));
+
   if (passwordLength < 8) {
     alert('this password is too short')
     alert('choose a number greater than 8')
@@ -21,8 +21,18 @@ function generatePassword() {
     alert("let's try this again")
     return
   }
+  if(isNaN(passwordLength)) {
+    alert ("For this function, the number cannot be written out")
+    return
+  }
   //parseinit takes the argument introduced in the prompt and changes the boolean into an integer thats specifically used to define SCALE
-  passwordLength = parseInt(passwordLength)
+  // passwordLength = parseInt(passwordLength)
+
+//   while (isNaN(passwordlength)|| passwordlength < 8 || passwordlength > 128) {
+//     alert('Password length must be a number between 8 and 128');
+//     length = prompt('Enter the desired length of your password (between 8 and 128 characters)');
+//     passwordlength = parseInt(passwordlength);
+// }
   
   var numbers = confirm("Press OK to add numbers. Press Cancel to continue without.");
   var lcAlphabet = confirm("Press OK to add lowercase. Press Cancel to continue without.");
@@ -37,35 +47,46 @@ function generatePassword() {
     alert('please')
   }  
   
-  if (numbers) combinedTrue += [... '1234567890'];
-  if (lcAlphabet) combinedTrue += [...'abcdefghijklmnopqrstuvwxyz'];
-  if (ucAlphabet) combinedTrue += [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-  if (sCharacters) combinedTrue += [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"]
+  if (numbers) combinedTrue.concat += [... '1234567890'];
+  if (lcAlphabet) combinedTrue.concat += [...'abcdefghijklmnopqrstuvwxyz'];
+  if (ucAlphabet) combinedTrue.concat += [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+  if (sCharacters) combinedTrue.concat += [...'"', " !#$%&'()*+,-./:;<=>?@[]^_`{|}~"]
+
+  // var passwordCombo = concat(combined)
+  
+
+
+  // combinedTrue = combinedTrue.slice(passwordLength)
   console.log(combinedTrue);
-  const ultimateTrue = [combinedTrue]
 
-  const shuffledCombo = ultimateTrue.sort((a,b) => 0.5 - Math.random())
-  console.log(shuffledCombo);
 
-  for (let i = 0; i < passwordLength; i++) {
-    var passwordShuffle = Math.floor(Math.random() * combinedTrue.length);
-    password = combinedTrue[passwordShuffle];
-  }
+//   for (let i = 0; i < length; i++) {
+//     let randomIndex = Math.floor(Math.random() * characterSet.length);
+//     password += characterSet[randomIndex];
+// }
 
-return password
+// return password
 
   
 }
 
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  var passwordPrompts = passwordChoices();
+  if(correctPrompts) {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    
+    passwordText.value = password;
+    
+    }
+    
+  }
+  
 }
 
+// function writePassword() {
 
-generateBtn.addEventListener("click", generatePassword);
+
+// generateBtn.addEventListener("click", generatePassword);
 
 generateBtn.addEventListener("click", writePassword);

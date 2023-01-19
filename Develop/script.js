@@ -2,7 +2,7 @@
 
 var generateBtn = document.querySelector("#generate");
 var combinedTrue = '';
-var password = '';
+// var password = '';
 var passwordLength = '';
 
 function passwordChoices() {
@@ -70,18 +70,27 @@ function passwordChoices() {
   
 }
 
-function writePassword() {
-  var passwordPrompts = passwordChoices();
-  if(correctPrompts) {
-    var password = generatePassword();
+function writePassword() { 
+  var promptResults = passwordChoices();
+  if(promptResults) {
+    var passwordAlpha = generatePassword();
     var passwordText = document.querySelector("#password");
     
-    passwordText.value = password;
+    passwordText.value = passwordAlpha;
     
-    }
     
   }
-  
+};
+console.log(password);
+
+function generatePassword() {
+  var password = '';
+  for (var i = 0; i < passwordLength; i++) {
+    var randomLetter = Math.floor(Math.random() * combinedTrue.length);
+    password = password + combinedTrue[randomLetter]
+
+  }
+  return password;
 }
 
 // function writePassword() {
